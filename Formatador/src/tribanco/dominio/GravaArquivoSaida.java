@@ -6,12 +6,12 @@ import java.io.IOException;
 
 public class GravaArquivoSaida {
 
-	public void gravaArquivo(String linha) throws IOException {
-
-		String saida = "C:\\Users\\julimar.miranda\\Documents\\Teste SGP\\arquivos\\saida_formatador\\CSU_ACQ_AGENDA_11052018.csv";
+	public void gravaArquivo(Parametros parametros) throws IOException {
 		
+		String saida  = parametros.getDirDestino()+"\\"+parametros.getNomeArquivo().replaceAll("TXT", "csv");
+		System.out.println("arq saisa"+saida);
 		BufferedWriter buffWrite = new BufferedWriter(new FileWriter(saida, true));
-		buffWrite.append(linha+"\n");
+		buffWrite.append(parametros.getLinha()+"\n");
 		buffWrite.close();
 
 	}
